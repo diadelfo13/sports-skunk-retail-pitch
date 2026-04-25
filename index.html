@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sports Skunk — Retail Pitch | The Category Replacement for Captodor</title>
-<meta name="description" content="Plant-derived sports gear deodorizer that captures odor molecules instead of masking them. A clean-label, zero-fragrance shelf replacement for Captodor.">
+<meta name="description" content="Plant-derived sports gear deodorizer that captures odor molecules instead of masking them. Clean-label, no synthetic perfumes — a category replacement for Captodor.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -650,6 +650,123 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px;
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.72);
+}
+
+/* ============ FREE-FROM STRIP (under hero) ============ */
+.free-from-strip {
+  background: var(--ink);
+  border-top: 2px solid var(--yellow);
+  border-bottom: 2px solid var(--yellow);
+  padding: 22px 0;
+  position: relative;
+  overflow: hidden;
+}
+.free-from-strip::before {
+  content: 'FORMULATED WITHOUT';
+  position: absolute;
+  top: 6px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  color: var(--yellow);
+  opacity: 0.7;
+}
+.free-from-strip__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+.free-from-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-border);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper);
+  font-weight: 500;
+}
+.free-from-badge__pct {
+  color: var(--yellow);
+  font-family: var(--display);
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+@media (max-width: 700px) {
+  .free-from-strip__inner { gap: 8px; }
+  .free-from-badge { padding: 8px 12px; font-size: 10px; letter-spacing: 0.14em; }
+  .free-from-badge__pct { font-size: 15px; }
+}
+
+/* ============ HERO LOYALTY BADGE (sticker on bottle) ============ */
+.hero__loyalty-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 5;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-8deg);
+  font-family: var(--display);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  padding: 8px;
+}
+.hero__loyalty-badge::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--ink);
+  pointer-events: none;
+}
+.hero__loyalty-badge-top {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.hero__loyalty-badge-main {
+  font-size: 22px;
+  line-height: 0.92;
+  margin-bottom: 4px;
+}
+.hero__loyalty-badge-sub {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  max-width: 100px;
+}
+@media (max-width: 700px) {
+  .hero__loyalty-badge {
+    width: 96px; height: 96px;
+    top: 12px; right: 12px;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .hero__loyalty-badge-main { font-size: 16px; }
+  .hero__loyalty-badge-top, .hero__loyalty-badge-sub { font-size: 7px; }
 }
 
 .callout-strip {
@@ -1312,7 +1429,7 @@ a { color: inherit; text-decoration: none; }
         <div class="hero__tag-row">
           <span class="hero__pill hero__pill--solid">Janitori No. 06</span>
           <span class="hero__pill">B2B Retail Pitch</span>
-          <span class="hero__pill">250ml · 500ml · 3.6L</span>
+          <span class="hero__pill">250ml · 500ml · 4L</span>
         </div>
         <h1 class="hero__headline">
           Your shelf has Captodor. Your customer wants <em>something that actually works.</em>
@@ -1333,6 +1450,14 @@ a { color: inherit; text-decoration: none; }
 
       <div class="hero__bottle">
         <div class="hero__bottle-label">JANITORI · No. 06</div>
+
+        <!-- Loyalty / repeat-buyer sticker badge -->
+        <div class="hero__loyalty-badge" aria-label="Repeat buyer favorite">
+          <div class="hero__loyalty-badge-top">★ ★ ★ ★ ★</div>
+          <div class="hero__loyalty-badge-main">REPEAT<br>BUYER<br>FAVORITE</div>
+          <div class="hero__loyalty-badge-sub">CUSTOMERS<br>COME BACK</div>
+        </div>
+
         <div class="hero__jersey">06</div>
 
         <!-- PRODUCT PHOTO SLOT: tries assets/product.svg first, then product.png. Falls back to SVG placeholder if missing. -->
@@ -1388,6 +1513,20 @@ a { color: inherit; text-decoration: none; }
   <div class="hero__scroll-hint">SCROLL</div>
 </header>
 
+<!-- ============ FREE-FROM STRIP ============ -->
+<div class="free-from-strip" aria-label="Formulated without">
+  <div class="wrap">
+    <div class="free-from-strip__inner">
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> Parabens</span>
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> SLS</span>
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> Chlorine</span>
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> Colorants</span>
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> Phosphates</span>
+      <span class="free-from-badge"><span class="free-from-badge__pct">0%</span> VOCs</span>
+    </div>
+  </div>
+</div>
+
 <!-- TAPE DIVIDER -->
 <div class="tape-divider" aria-hidden="true"></div>
 
@@ -1402,7 +1541,7 @@ a { color: inherit; text-decoration: none; }
     <div class="problem__grid">
       <div class="problem__body reveal reveal--delay-1">
         <p>The sports deodorizer category has one dirty secret: most products trade one smell for another.</p>
-        <p>Fragrance-based sprays — even those that claim to "neutralize" — add a scented layer over the odor. When the fragrance fades in 12–24 hours, the original smell is still there. Customers know this. They've been buying these products for years, feeling let down, and searching for something better.</p>
+        <p>Synthetic fragrance sprays — even those that claim to "neutralize" — add a chemical scent layer over the odor. When the perfume fades in 12–24 hours, the original smell is still there. Customers know this. They've been buying these products for years, feeling let down, and searching for something that actually works.</p>
         <p class="kicker">That consumer frustration is your category opportunity.</p>
       </div>
 
@@ -1435,12 +1574,13 @@ a { color: inherit; text-decoration: none; }
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow" style="justify-content: center; margin: 0 auto; display: inline-flex;">02 · The Mechanism</span>
-      <h2 class="section-header">Zinc Ricinoleate.<br>Not Fragrance. Not Biotech.<br><em>A Molecular Trap.</em></h2>
+      <h2 class="section-header">Capture. Disinfect.<br><em>Then Walk Away.</em></h2>
     </div>
 
     <div class="mechanism__lede reveal reveal--delay-1">
-      <p>Sports Skunk's active ingredient — <strong>zinc ricinoleate</strong> — is derived from the castor bean plant. It works by forming a stable chemical bond with odor molecules, making them physically undetectable. The smell isn't covered. It's captured.</p>
-      <p>No fragrance added. No "Fresh Rain." No masking. The result is neutral — which is exactly what your customer has been trying to achieve.</p>
+      <p>Sports Skunk works on two fronts. <strong>Zinc ricinoleate</strong> — derived from the castor bean plant — forms a stable chemical bond with odor molecules, making them physically undetectable. The smell isn't covered. It's captured.</p>
+      <p>An <strong>alcohol base</strong> works alongside it as a Health Canada-licensed antibacterial — killing the odor-causing bacteria that re-grow inside damp gear between uses. Capture the smell that's there. Stop the smell that's coming.</p>
+      <p>No synthetic fragrance. No "Fresh Rain" cover-up. Just a light, natural orange-mint from real essential oils — there to scent the room as you spray, not to mask what's underneath.</p>
     </div>
 
     <div class="pillars">
@@ -1457,8 +1597,8 @@ a { color: inherit; text-decoration: none; }
           <path d="M32 18 L32 26 M32 38 L32 46 M18 32 L26 32 M38 32 L46 32"/>
         </svg>
         <span class="pillar__num">01</span>
-        <h3 class="pillar__title">Molecular Capture</h3>
-        <p class="pillar__desc">Zinc ricinoleate binds odor molecules at the chemical level. No fragrance needed. No cover-up.</p>
+        <h3 class="pillar__title">Capture + Disinfect</h3>
+        <p class="pillar__desc">Zinc ricinoleate binds existing odor molecules. Alcohol base kills the odor-causing bacteria that re-grow inside damp gear. NPN-licensed antibacterial.</p>
       </article>
 
       <!-- Pillar 2 — Helmet/skin-safe -->
@@ -1487,7 +1627,7 @@ a { color: inherit; text-decoration: none; }
         </svg>
         <span class="pillar__num">03</span>
         <h3 class="pillar__title">Full Clean Label</h3>
-        <p class="pillar__desc">Every ingredient disclosed. No "fragrance" umbrella hiding undisclosed compounds.</p>
+        <p class="pillar__desc">Every ingredient disclosed — including the natural orange-mint essential oils. No "fragrance" umbrella hiding undisclosed synthetic compounds.</p>
       </article>
     </div>
 
@@ -1518,9 +1658,14 @@ a { color: inherit; text-decoration: none; }
         <div><span class="check-warn">≈</span> Microorganism breakdown + fragrance layer</div>
       </div>
       <div class="compare__row">
-        <div>Added Fragrance</div>
-        <div><span class="check-yes">✓</span> None — genuinely neutral</div>
-        <div><span class="check-no">✕</span> "Fresh Rain" synthetic scent</div>
+        <div>Antibacterial Action</div>
+        <div><span class="check-yes">✓</span> Alcohol base kills odor-causing bacteria · NPN-licensed</div>
+        <div><span class="check-no">✕</span> No antibacterial claim</div>
+      </div>
+      <div class="compare__row">
+        <div>Scent Profile</div>
+        <div><span class="check-yes">✓</span> Light orange-mint — natural essential oils only</div>
+        <div><span class="check-no">✕</span> "Fresh Rain" synthetic perfume</div>
       </div>
       <div class="compare__row">
         <div>Published Ingredients</div>
@@ -1574,7 +1719,7 @@ a { color: inherit; text-decoration: none; }
         <div class="point__num">01</div>
         <div class="point__content">
           <h3 class="point__title">Consumer Demand Is Real And Growing</h3>
-          <p class="point__body">The "fragrance-free" and "clean label" consumer segment is the fastest-growing subcategory in household and personal care. Athletes and hockey parents are reading ingredient labels. They're actively rejecting fragrance-based products on skin-contact gear.</p>
+          <p class="point__body">The "no synthetic fragrance" and "clean label" consumer segment is the fastest-growing subcategory in household and personal care. Athletes and hockey parents are reading ingredient labels. They're actively rejecting synthetic-perfume products on skin-contact gear — and choosing brands that disclose every ingredient, including their natural scents.</p>
           <span class="point__pill">Velocity Signal</span>
         </div>
       </article>
@@ -1610,7 +1755,7 @@ a { color: inherit; text-decoration: none; }
         <div class="point__num">05</div>
         <div class="point__content">
           <h3 class="point__title">Replenishment-Driven SKU</h3>
-          <p class="point__body">Three formats serve three shoppers. 250 ml for trial + gift. 500 ml is the core repeat SKU — active households use 1–2 per hockey season. 3.6 L refill for team-bag and equipment-room accounts who won't buy single bottles. One product line, three reorder cadences.</p>
+          <p class="point__body">Three formats serve three shoppers. 250 ml for trial + gift. 500 ml is the core repeat SKU — active households use 1–2 per hockey season. 4 L refill for team-bag and equipment-room accounts who won't buy single bottles. One product line, three reorder cadences.</p>
           <span class="point__pill">Reorder Rate</span>
         </div>
       </article>
